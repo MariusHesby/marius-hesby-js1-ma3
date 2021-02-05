@@ -1,10 +1,10 @@
 // Question 2
-// Make a call to the following API endpoint:
-// https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating
+// Make a call to the following API endpoint: DONE
+// https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating DONE
 
 // Loop through the results and display the following properties in HTML, but only for the first eight results:
-// name
-// rating
+// name DONE
+// rating DONE
 // number of tags (not the tag details, just the amount of tags)
 // The styling for this assignment is not important but loading indicator should be displayed while the API call is in progress.
 
@@ -12,4 +12,43 @@
 
 // You can use either regular promise or async/await syntax to make the call.
 
-// Be sure to arrange all file types appropriately, consult the repos from the lessons for examples.
+// Be sure to arrange all file types appropriately, consult the repos from the lessons for examples
+
+const url = "https://apis.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating";
+const resultsContainer = document.querySelector(".results");
+
+async function fetchData() {
+
+try {
+   const response = await fetch(url);
+   const results = await response.json();
+   const data = results.results;
+
+   resultsContainer.innerHTML = "";
+
+   let i;
+   for(i = 0; i < data.length; i++) {
+   
+   const gameName = data[i].name;
+   const gameRating = data[i].rating;
+   const gameTags = data[i].tags.length;
+
+   if(i === 8) {
+      break;
+   }
+
+   resultsContainer.innerHTML +=`
+   <div class="result">
+   <h2>${gameName}</h2>
+   <p>Rating: ${gameRating}</p>
+   <p>Tags: ${gameTags}</p>
+   </div>`;
+   }
+}
+catch (error) {
+   console.log(error);
+   resultsContainer.innerHTML = `<div class="woops">Woops, something went wrong. Please call 404!</div>`;
+}
+}
+
+fetchData();
