@@ -14,7 +14,7 @@
 
 // Be sure to arrange all file types appropriately, consult the repos from the lessons for examples
 
-const url = "https://apis.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating";
+const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating";
 const resultsContainer = document.querySelector(".results");
 
 async function fetchData() {
