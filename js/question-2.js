@@ -1,6 +1,6 @@
 // Question 2
 // Make a call to the following API endpoint: DONE
-// https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating DONE
+// https://apsi.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating DONE
 
 // Loop through the results and display the following properties in HTML, but only for the first eight results:
 // name DONE
@@ -18,37 +18,28 @@ const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=
 const resultsContainer = document.querySelector(".results");
 
 async function fetchData() {
+  try {
+    const response = await fetch(url);
+    const results = await response.json();
+    const data = results.results;
 
-try {
-   const response = await fetch(url);
-   const results = await response.json();
-   const data = results.results;
+    resultsContainer.innerHTML = "";
 
-   resultsContainer.innerHTML = "";
+    for (let i = 0; i < data.length; i++) {
+      if (i === 8) break;
 
-   let i;
-   for(i = 0; i < data.length; i++) {
-   
-   const gameName = data[i].name;
-   const gameRating = data[i].rating;
-   const gameTags = data[i].tags.length;
+      const gameName = data[i].name;
+      const gameRating = data[i].rating;
+      const gameTags = data[i].tags.length;
 
-   if(i === 8) {
-      break;
-   }
-
-   resultsContainer.innerHTML +=`
-   <div class="result">
-   <h2>${gameName}</h2>
-   <p>Rating: ${gameRating}</p>
-   <p>Tags: ${gameTags}</p>
-   </div>`;
-   }
-}
-catch (error) {
-   console.log(error);
-   resultsContainer.innerHTML = `<div class="woops">Woops, something went wrong. Please call 404!</div>`;
-}
+      // Made with help from Kasper Bø Bjørnø
+      resultsContainer.innerHTML += gameCard(gameName, gameRating, gameTags);
+    }
+  } catch (error) {
+    console.error(error);
+    // Made with help from Kasper Bø Bjørnø
+    resultsContainer.innerHTML = newError("Woops, something went wrong. Please call 404!", error);
+  }
 }
 
 fetchData();
