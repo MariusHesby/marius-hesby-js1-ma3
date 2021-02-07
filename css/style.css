@@ -5,6 +5,8 @@
 body {
   font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-size: 1em;
+  background: rgb(190, 54, 19);
+  background: linear-gradient(90deg, rgba(190, 54, 19, 1) -15%, rgba(104, 45, 201, 1) 0%, rgba(218, 31, 107, 1) 100%, rgba(190, 54, 19, 1) 100%, rgba(190, 28, 223, 0) 100%);
 }
 p {
   padding: 5px 0;
@@ -12,22 +14,27 @@ p {
 h1 {
   padding: 60px;
   border: 1px solid #333;
-  background-color: gold;
+  background: rgb(190, 54, 19);
+  background: linear-gradient(90deg, rgba(190, 54, 19, 1) -15%, rgba(154, 27, 158, 0.6937149859943977) 0%, rgba(218, 31, 107, 1) 100%, rgba(190, 54, 19, 1) 100%, rgba(190, 28, 223, 0) 100%);
   text-align: center;
   margin: 20px 0;
-  box-shadow: 5px 10px #888888;
+  box-shadow: 5px 10px #333;
+  color: #fff;
 }
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: bolder;
+  border-bottom: 1px solid rgb(244, 96, 224);
 }
 .container {
   max-width: 900px;
   padding: 20px 10px;
+  margin: 0 auto;
 }
 .warning {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
-  color: darkred;
+  color: red;
 }
 .results {
   display: flex;
@@ -39,23 +46,27 @@ h2 {
   display: block;
 }
 .result {
-  border: 1px solid #000;
+  border: 1px solid #333;
   padding: 15px;
-  background-color: rgb(254, 246, 233);
   margin: 20px 5px;
   width: 390px;
+  background-color: #fff;
 }
 .woops {
+  display: grid;
+  text-align: center;
   padding: 3rem;
   border: 1px solid darkred;
-  background-color: rgb(255, 196, 196);
+  background-color: #fff;
+  margin-top: 30px;
 }
 .loader {
-  border: 56px solid rgb(228, 255, 222);
-  border-top: 56px solid green;
+  margin-top: 30px;
+  border: 80px solid #fff;
+  border-top: 80px solid rgb(192, 46, 143);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 180px;
+  height: 180px;
   animation: spin 2s linear infinite;
 }
 

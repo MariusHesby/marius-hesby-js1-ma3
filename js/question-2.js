@@ -22,7 +22,6 @@ async function fetchData() {
     const response = await fetch(url);
     const results = await response.json();
     const data = results.results;
-
     resultsContainer.innerHTML = "";
 
     for (let i = 0; i < data.length; i++) {
@@ -36,6 +35,7 @@ async function fetchData() {
       resultsContainer.innerHTML += gameCard(gameName, gameRating, gameTags);
     }
   } catch (error) {
+    resultsContainer.innerHTML = "";
     console.error(error);
     // Made with help from Kasper Bø Bjørnø
     resultsContainer.innerHTML = newError("Woops, something went wrong. Please call 404!", error);
