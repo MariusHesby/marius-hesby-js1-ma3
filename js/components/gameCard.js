@@ -3,7 +3,7 @@ const gameCard = (name, rating, tags) => {
           <div class="result">
             <h2>${name}</h2>
               <p>Rating: ${rating}</p>
-              <p>Tags: ${tags.length}</p>
+              <p>Tags: ${tags}</p>
           </div>
         `;
 };

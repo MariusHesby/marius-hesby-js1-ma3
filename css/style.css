@@ -10,15 +10,19 @@ p {
   padding: 5px 0;
 }
 h1 {
-  margin: 15px;
   padding: 60px;
   border: 1px solid #333;
   background-color: gold;
-  max-width: 750px;
   text-align: center;
+  margin: 20px 0;
+  box-shadow: 5px 10px #888888;
 }
 h2 {
   font-size: 1.2rem;
+}
+.container {
+  max-width: 900px;
+  padding: 20px 10px;
 }
 .warning {
   font-size: 1.2em;
@@ -29,7 +33,6 @@ h2 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 900px;
 }
 .rating,
 .tag {
